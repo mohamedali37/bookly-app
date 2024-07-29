@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_item_list_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,15 +16,20 @@ class BookDetailsViewBody extends StatelessWidget {
         children: [
           const CustomBookDetailsAppBar(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.17),
+            padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.17),
             child: const CustomItemListView(),
           ),
-          const SizedBox(height: 43,),
+          const SizedBox(
+            height: 43,
+          ),
           Text(
             'The jungle book',
             style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
-            ),
-          const SizedBox(height: 6,),
+          ),
+          const SizedBox(
+            height: 6,
+          ),
           Opacity(
             opacity: 0.7,
             child: Text(
@@ -32,11 +38,16 @@ class BookDetailsViewBody extends StatelessWidget {
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500,
               ),
-              ),
+            ),
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ],
       ),
     );
   }
 }
-
