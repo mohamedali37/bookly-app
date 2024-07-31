@@ -16,7 +16,7 @@ class BookActions extends StatelessWidget {
               textColor: Colors.black,
               backgroundColor: Colors.white,
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12), 
+                  topLeft: Radius.circular(12),
                   bottomLeft: Radius.circular(12)),
             ),
           ),
