@@ -4,5 +4,9 @@ import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure,List<BookModel>>> featchBooks();
-  featchBestSellerBooks();
+  Future<Either<Failure,List<BookModel>>> featchBestSellerBooks();
 }
+
+
+
+// https://www.googleapis.com/books/v1/volumes?q=programming
