@@ -1,3 +1,5 @@
+import 'package:bookly_app/core/error/failure.dart';
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class ApiServices {
@@ -5,8 +7,16 @@ class ApiServices {
   final Dio dio;
   ApiServices(this.dio);
 
-  Future<Map<String,dynamic>> get ({required String endPoint}) async{
-    var respone = await dio.get('$_baseUrl$endPoint');
-    return respone.data;
+  Future<Either<Failure, Map<String, dynamic>>> get(
+      {required String endPoint}) async {
+    try {
+      var respone = await dio.get('$_baseUrl$endPoint');
+      return right(respone.data);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 }
