@@ -1,5 +1,6 @@
+import 'dart:io';
+
 import 'package:bookly_app/features/home/presentation/views/widgets/home_view_body.dart';
-import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,10 +8,43 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: DoubleBackToCloseApp(
-          snackBar: SnackBar(content: Text('click again to close app')),
-          child: HomeViewBody()),
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        return await onPopMethod(context);
+      },
+      child: const Scaffold(
+        body: HomeViewBody(),
+      ),
+    );
+  }
+
+  onPopMethod(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        scrollable: true,
+        title: Text(
+          'Exit',
+        ),
+        content: Text('Do you want to exit app'),
+        actions: [
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+              ),
+              onPressed: () => exit(0),
+              child: Text('Exit')),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('return'))
+        ],
+      ),
     );
   }
 }
