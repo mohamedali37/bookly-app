@@ -13,6 +13,6 @@ class BooksCubit extends Cubit<BooksState> {
         emit(BooksFailureState(failure.error));
       }, (books) {
         emit(BooksSuccessState(books));
-      })
+      });
   }
 }
