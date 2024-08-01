@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -26,23 +27,39 @@ class HomeView extends StatelessWidget {
         scrollable: true,
         title: Text(
           'Exit',
+          style: Styles.textStyle20.copyWith(
+            fontWeight: FontWeight.bold
+          ),
         ),
-        content: Text('Do you want to exit app'),
+        content: const Text(
+          'Do you want to exit app ?',
+          style: Styles.textStyle16,
+          ),
         actions: [
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
               ),
               onPressed: () => exit(0),
-              child: Text('Exit')),
+              child: Text(
+                'Yes',
+                style: Styles.textStyle16.copyWith(
+                  color: Colors.black,
+                ),
+                )),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
+                backgroundColor: Colors.green,
               ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('return'))
+              child: Text(
+                'No',
+                style: Styles.textStyle16.copyWith(
+                  color: Colors.black,
+                ),
+                ))
         ],
       ),
     );
