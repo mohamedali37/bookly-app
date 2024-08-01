@@ -14,11 +14,12 @@ class HomeRepoImpl extends HomeRepo {
         endPoint:
             'volumes?Filtering=free-ebooks&Sorting=newest &q=subject:Programming');
     List<BookModel> book = [];
-    data.fold((l) => l, (books) {
+    data.foldRight(book, (books, previous) {
       List<dynamic> booksList = books['items'];
       for (var element in booksList) {
         book.add(BookModel.fromJson(element));
       }
+      return book;
     });
     return right(book);
   }
@@ -28,11 +29,12 @@ class HomeRepoImpl extends HomeRepo {
     var result = await apiServices.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
     List<BookModel> book = [];
-    result.fold((l) => l, (books) {
+    result.foldRight(book, (books, previous) {
       List<dynamic> bookList = books['items'];
       for (var element in bookList) {
         book.add(BookModel.fromJson(element));
       }
+      return book;
     });
     return right(book);
   }
