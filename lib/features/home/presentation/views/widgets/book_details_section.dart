@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/utils/styles.dart';
+/*import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_actions.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_item_list_view.dart';
@@ -49,3 +49,4 @@ class BookDetailsSection extends StatelessWidget {
     );
   }
 }
+*/

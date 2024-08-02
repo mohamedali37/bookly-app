@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/utils/styles.dart';
+/*import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/similar_book_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -25,3 +25,4 @@ class SimilarBookSection extends StatelessWidget {
     );
   }
 }
+*/

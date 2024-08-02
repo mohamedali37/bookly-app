@@ -30,7 +30,7 @@ class SearchViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            SearchResultListView(),
+            //SearchResultListView(),
           ],
         ));
   }

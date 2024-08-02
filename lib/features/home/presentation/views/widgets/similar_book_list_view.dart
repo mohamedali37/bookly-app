@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/custom_item_list_view.dart';
+/*import 'package:bookly_app/features/home/presentation/views/widgets/custom_item_list_view.dart';
 import 'package:flutter/material.dart';
 
 class SimilarBookListView extends StatelessWidget {
@@ -11,11 +11,13 @@ class SimilarBookListView extends StatelessWidget {
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              child: CustomItemListView(),
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: CustomItemListView(
+                book: ,
+              ),
             );
           }),
     );
   }
-}
+}*/

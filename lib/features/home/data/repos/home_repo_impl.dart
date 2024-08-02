@@ -27,7 +27,7 @@ class HomeRepoImpl extends HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> featchBooks() async {
     var result = await apiServices.get(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
+        endPoint: 'volumes?Filtering=free-ebooks &q=subject:Programming');
     List<BookModel> book = [];
     result.foldRight(book, (books, previous) {
       List<dynamic> bookList = books['items'];
