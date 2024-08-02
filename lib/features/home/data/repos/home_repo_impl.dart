@@ -12,7 +12,7 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, List<BookModel>>> featchBestSellerBooks() async {
     var data = await apiServices.get(
         endPoint:
-            'volumes?Filtering=free-ebooks&Sorting=newest &q=subject:Programming');
+            'volumes?Filtering=free-ebooks&Sorting=newest &q=Programming');
     List<BookModel> book = [];
     data.foldRight(book, (books, previous) {
       List<dynamic> booksList = books['items'];
@@ -27,11 +27,11 @@ class HomeRepoImpl extends HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> featchBooks() async {
     var result = await apiServices.get(
-        endPoint: 'volumes?Filtering=free-ebooks &q=subject:Programming');
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
     List<BookModel> book = [];
     result.foldRight(book, (books, previous) {
-      List<dynamic> bookList = books['items'];
-      for (var element in bookList) {
+      List<dynamic> booksList = books['items'];
+      for (var element in booksList) {
         book.add(BookModel.fromJson(element));
       }
       return book;

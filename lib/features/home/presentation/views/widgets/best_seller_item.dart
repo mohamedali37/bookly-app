@@ -42,7 +42,7 @@ class BestSellerItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.5,
                   child: Text(
-                    'Harry Potter and the Goblet of Fire',
+                    books.volumeInfo.title!,
                     style: Styles.textStyle20.copyWith(fontFamily: kGTSectra),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -51,8 +51,8 @@ class BestSellerItem extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
-                  'J.K. Rowling',
+                Text(
+                  books.volumeInfo.authors![0],
                   style: Styles.textStyle14,
                 ),
                 const SizedBox(
@@ -60,7 +60,7 @@ class BestSellerItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text(r'19.99 $',
+                    Text('Free',
                         style: Styles.textStyle20
                             .copyWith(fontWeight: FontWeight.bold)),
                     const Spacer(),
