@@ -15,7 +15,7 @@ class CustomItemListView extends StatelessWidget {
           imageUrl: book.volumeInfo.imageLinks.thumbnail,
           fit: BoxFit.fill,
           placeholder:(context, url) => const Center(child: CircularProgressIndicator(),),
-          //errorWidget: (context, url, error) => const Icon(Icons.error),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         /*Container(
           decoration: BoxDecoration(

@@ -24,13 +24,10 @@ class ServerFailure extends Failure {
       case DioExceptionType.cancel:
         return ServerFailure('Api server was canceled');
       case DioExceptionType.connectionError:
-        return ServerFailure('Connection Error with api server');
+        return ServerFailure('No internet connection');
 
       case DioExceptionType.unknown:
-        if(dioException.message!.contains('SocketException')) {
-          return ServerFailure('No internet connection');
-        }
-        return ServerFailure('Unexception error, please try later');
+        return ServerFailure('unknown error');
       default:
           return ServerFailure('There was an error, plase try again');
     }
