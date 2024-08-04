@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/app_routers.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/core/widgets/custom_message_error.dart';
 import 'package:bookly_app/features/home/presentation/manager/books_cubit/books_cubit.dart';
@@ -5,6 +6,7 @@ import 'package:bookly_app/features/home/presentation/manager/books_cubit/books_
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_item_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class BooklyListView extends StatelessWidget {
   const BooklyListView({super.key});
@@ -22,7 +24,11 @@ class BooklyListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: CustomItemListView(book: state.books[index],),
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouters.kBookDetailsView, extra: state.books[index]);
+                    },
+                    child: CustomItemListView(image: state.books[index].volumeInfo.imageLinks.thumbnail,)),
                 );
               }),
         );
