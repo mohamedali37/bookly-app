@@ -11,7 +11,10 @@ Future<void> customLauncherUrl({
       await launchUrl(uri);
     } else {
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Book not found')));
+          .showSnackBar(const SnackBar(content: Text('can not access link')));   
     }
+  } else {
+    ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Book not found')));
   }
 }
