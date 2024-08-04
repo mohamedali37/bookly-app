@@ -16,13 +16,13 @@ class SimilarBookListView extends StatelessWidget {
       builder: (context, state) {
         if(state is SimilarBookSuccess) {
           return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.13,
+          height: MediaQuery.of(context).size.height * 0.17,
           child: ListView.builder(
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: GestureDetector(
                     onTap: () {
                       GoRouter.of(context).push(AppRouters.kBookDetailsView, extra: state.books[index]);
