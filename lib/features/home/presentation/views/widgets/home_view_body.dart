@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
-
+  const HomeViewBody({super.key,});
   @override
   Widget build(BuildContext context) {
     return const Padding(
@@ -18,7 +17,8 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(),
+              CustomAppBar(
+              ),
               BooklyListView(),
               SizedBox(
                 height: 50,
