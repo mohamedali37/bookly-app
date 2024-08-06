@@ -17,6 +17,7 @@ class BooklyLoading extends StatelessWidget {
             child: Shimmer.fromColors(
               baseColor: Colors.grey,
               highlightColor: Colors.white,
+              period: const Duration(milliseconds: 750),
               child: AspectRatio(
                   aspectRatio: 2.6 / 4,
                   child: Container(

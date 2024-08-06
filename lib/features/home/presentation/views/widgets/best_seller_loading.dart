@@ -15,6 +15,7 @@ class BestSellerLoading extends StatelessWidget {
           child: Shimmer.fromColors(
             baseColor: Colors.grey,
             highlightColor: Colors.white,
+            period: const Duration(milliseconds: 750),
             child: SizedBox(
               height: 140,
               child: Row(children: [
