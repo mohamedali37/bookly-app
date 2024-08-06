@@ -8,10 +8,9 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextField(
       onChanged: (value) {
-        context.read<SearchCubit>().onSearch(context, value);
-        //BlocProvider.of<SearchCubit>(context).onSearch(context, value);
+        BlocProvider.of<SearchCubit>(context).onSearch(value);
       },
       decoration: InputDecoration(
           enabledBorder: outLineBorder(),

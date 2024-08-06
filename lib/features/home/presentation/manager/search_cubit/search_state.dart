@@ -7,6 +7,17 @@ sealed class SearchState extends Equatable {
   List<Object> get props => [];
 }
 final class SearchInitial extends SearchState {}
+final class DataLoading extends SearchState {}
+final class DataFailure extends SearchState {
+  final String error;
+
+  const DataFailure({required this.error});
+}
+final class DataSuccess extends SearchState {
+  final List<BookModel> books;
+
+  const DataSuccess({required this.books});
+}
 
 
 

@@ -1,12 +1,22 @@
 
+import 'package:bookly_app/features/home/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:bookly_app/features/search/presentation/views/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SearchView extends StatelessWidget {
+class SearchView extends StatefulWidget {
   const SearchView({super.key});
 
   @override
-  
+  State<SearchView> createState() => _SearchViewState();
+}
+
+class _SearchViewState extends State<SearchView> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<SearchCubit>(context).data();
+  }
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

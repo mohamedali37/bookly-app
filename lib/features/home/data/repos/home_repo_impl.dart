@@ -68,8 +68,9 @@ class HomeRepoImpl extends HomeRepo {
   }
   
   @override
-  Future<List<BookModel>> searchBooks() async{
-    var data = await apiServices.get(
+  Future<Either<Failure, List<BookModel>>> searchBooks() async{
+    try {
+      var data = await apiServices.get(
           endPoint:
               'volumes?Filtering=free-ebooks&Sorting=newest &q=Programming');
       List<dynamic> booksList = data['items'];
@@ -77,8 +78,15 @@ class HomeRepoImpl extends HomeRepo {
       for (var element in booksList) {
         book.add(BookModel.fromJson(element));
       }
-      return book;
+      return right(book);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
+  
   
   
 }
