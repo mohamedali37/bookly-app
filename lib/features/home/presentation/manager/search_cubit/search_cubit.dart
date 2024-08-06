@@ -17,9 +17,9 @@ class SearchCubit extends Cubit<SearchState> {
       List<BookModel> data = BlocProvider.of<NewestBooksCubit>(context)
         .bookList
         .where((element) =>
-            element.volumeInfo.title!.toLowerCase().startsWith(value))
+            element.volumeInfo.title!.toLowerCase().contains(value))
         .toList();
-        emit(SearchDefault(books: data));
+        emit(SearchSuccess(books: data));
     }
   }
 }
