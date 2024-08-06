@@ -1,8 +1,8 @@
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/core/widgets/custom_message_error.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,10 +22,7 @@ class SearchResultListView extends StatelessWidget {
        } else if (state is SearchSuccess) {
           return SearchList(books: state.books);
        } else {
-          return const SliverFillRemaining(
-            hasScrollBody: false,
-            child: Center(child: CustomLoadingIndicator()),
-          );
+          return const BestSellerLoading();
        }
       });        
 }

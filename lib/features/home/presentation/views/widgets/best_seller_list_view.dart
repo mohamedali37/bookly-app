@@ -28,8 +28,7 @@ class BestSellerListView extends StatelessWidget {
               hasScrollBody: false,
               child: CustomMessageError(message: state.err));
         } else {
-          return const SliverFillRemaining(
-              hasScrollBody: false, child: BestSellerLoading());
+          return const BestSellerLoading();
         }
       },
     );

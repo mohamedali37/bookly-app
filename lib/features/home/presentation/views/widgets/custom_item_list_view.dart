@@ -16,9 +16,9 @@ class CustomItemListView extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: image,
           fit: BoxFit.fill,
-          placeholder: (context, url) => const Center(
+          /*placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(),
-          ),
+          ),*/
           errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
         /*Container(
