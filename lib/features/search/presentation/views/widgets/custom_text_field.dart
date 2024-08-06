@@ -1,4 +1,6 @@
+import 'package:bookly_app/features/home/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -6,7 +8,10 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onChanged: (value) {
+        BlocProvider.of<SearchCubit>(context).onSearch(context, value);
+      },
       decoration: InputDecoration(
           enabledBorder: outLineBorder(),
           focusedBorder: outLineBorder(),

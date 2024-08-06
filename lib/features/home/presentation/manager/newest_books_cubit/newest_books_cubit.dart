@@ -8,6 +8,7 @@ part 'newest_books_state.dart';
 class NewestBooksCubit extends Cubit<NewestBooksState> {
   NewestBooksCubit(this.homeRepo) : super(NewestBooksInitial());
   final HomeRepo homeRepo;
+  late List<BookModel> bookList;
   Future<void> featchNewestBooks() async {
     emit(NewestBooksLoading());
     var result = await homeRepo.featchBestSellerBooks();
@@ -16,7 +17,8 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
         emit(NewestBooksFailure(failure.error));
       }, 
       (books) {
-        emit(NewestBooksSuccess(books));
+        bookList = books;
+        emit(NewestBooksSuccess(bookList));
       });
   }
 }

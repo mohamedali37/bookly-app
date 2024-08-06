@@ -66,4 +66,19 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+  
+  @override
+  Future<List<BookModel>> searchBooks() async{
+    var data = await apiServices.get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&Sorting=newest &q=Programming');
+      List<dynamic> booksList = data['items'];
+      List<BookModel> book = [];
+      for (var element in booksList) {
+        book.add(BookModel.fromJson(element));
+      }
+      return book;
+  }
+  
+  
 }
