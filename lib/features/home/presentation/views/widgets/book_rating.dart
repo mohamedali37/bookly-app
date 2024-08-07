@@ -1,12 +1,14 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookRating extends StatelessWidget {
   const BookRating(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.start, });
+      {super.key, this.mainAxisAlignment = MainAxisAlignment.start, required this.bookModel, });
   final MainAxisAlignment mainAxisAlignment;
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -30,7 +32,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: 0.5,
           child: Text(
-            '(3200)',
+            '(${bookModel.volumeInfo.pageCount})',
             style: Styles.textStyle14.copyWith(
               fontWeight: FontWeight.w500,
             ),
