@@ -3,7 +3,6 @@ import 'package:shimmer/shimmer.dart';
 
 class BestSellerLoading extends StatelessWidget {
   const BestSellerLoading({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SliverList(
@@ -35,7 +34,10 @@ class BestSellerLoading extends StatelessWidget {
                   Container(
                     height: 50,
                     width: double.infinity,
-                    color: Colors.grey,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.grey
+                    ),
                   ),
                   const SizedBox(
                     height: 3,
@@ -43,7 +45,10 @@ class BestSellerLoading extends StatelessWidget {
                   Container(
                     height: 30,
                     width: double.infinity,
-                    color: Colors.grey,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.grey
+                    ),
                   ),
                   const SizedBox(
                     height: 3,
@@ -54,12 +59,18 @@ class BestSellerLoading extends StatelessWidget {
                       Container(
                         height: 20,
                         width: 48,
-                        color: Colors.grey,
+                        decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.grey
+                    ),
                       ),
                       Container(
                         height: 20,
                         width: 48,
-                        color: Colors.grey,
+                        decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.grey
+                    ),
                       )
                     ],
                   )
